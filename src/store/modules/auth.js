@@ -83,6 +83,12 @@ const actions = {
                 }
             })
     },
+    saveTravel({commit, dispatch, state}, payload) {
+        return axios.post('/travels/add-travel', payload)
+            .then(response => {
+                return response
+            })
+    },
     logout({commit, dispatch, state}) {
         commit("clearToken")
         commit("setUser", null)

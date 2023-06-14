@@ -48,6 +48,7 @@ export default new Vuex.Store({
                     console.log(response)
                     state.category = []
                     let category = response.data.category;
+                    console.log(category)
                     for (let key in category) {
                         commit("updateCategoryList", category[key]);
                     }

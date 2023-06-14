@@ -11,6 +11,7 @@ import Traveller from "@/views/traveller";
 import Blog from "@/views/blog";
 import singleBlog from "../components/traveller/singleBlog"
 import Auth from "@/views/login";
+import addTravel from "@/components/addTravel";
 import SignUp from "@/views/signup";
 import store from "@/store";
 
@@ -47,6 +48,18 @@ const routes = [
             },
             {
                 path: '/community', component: Blog,
+            },
+            {
+                path: '/add-travel', component: addTravel,
+                beforeEnter: (to, from, next) => {
+                    const getUser = store.getters.getUser
+
+                    if (getUser) {
+                        next();
+                    } else {
+                        next('/dashboard');
+                    }
+                }
             },
         ]
     },

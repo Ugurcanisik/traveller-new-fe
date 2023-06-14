@@ -102,6 +102,14 @@
               <a class="nav-link dropdown-toggle" href="#"
                  data-toggle="dropdown">{{ getUser.firstName + " " + getUser.lastName }}</a>
               <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                <router-link
+                    to="/add-travel"
+                    tag="a"
+                    class="dropdown-item"
+                >
+                  Tatil Yeri Ekle
+                </router-link>
+
                 <a class="dropdown-item" @click="logout">Logout</a>
               </div>
             </li>
@@ -131,6 +139,9 @@ export default {
   watch: {},
   methods: {
     logout() {
+      this.$store.dispatch('logout')
+    },
+    addTravel() {
       this.$store.dispatch('logout')
     }
   }
